@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/your-username/paycare.git'
+                git 'https://github.com/qxzjy/paycare.git'
             }
         }
 
@@ -42,7 +42,7 @@ pipeline {
                     sh 'echo "employee_id,employee_name,salary\n101,Alice,5000\n102,Bob,7000" > input_data.csv'
 
                     // Run the Docker container with mounted input/output files
-                    sh 'docker run --rm -v $(pwd)/input_data.csv:/app/input_data.csv -v $(pwd)/output_data.csv:/app/output_data.csv ${DOCKER_IMAGE}'
+                    sh 'docker run --rm -v $(pwd)/data/input_data.csv:/app/input_data.csv -v $(pwd)/data/output_data.csv:/app/output_data.csv ${DOCKER_IMAGE}'
                 }
             }
         }
