@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 from io import StringIO
-from app.etl import extract_data, transform_data, load_data
+from paycare.app.etl import extract_data, transform_data, load_data
 
 # Test for data extraction
 def test_extract_data():
