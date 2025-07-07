@@ -36,6 +36,7 @@ pipeline {
                     // Run a command inside the Docker container built earlier
                     // This uses pytest to run tests and outputs results to results.xml
                     docker.image("${DOCKER_IMAGE}:latest").inside {
+                        sh 'export PYTHONPATH=$(pwd)'
                         sh 'pytest --junitxml=results.xml'
                     }
                 }
